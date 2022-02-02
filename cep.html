@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Via CEP</title>
+    <style>
+        .endereco
+        {
+            width: 100%;
+            padding: 10px;
+        }
+        label
+        {
+            font-size: 1.1em;
+            font-weight: 450;
+            color: #000;
+        }
+        input
+        {
+            border: 0px;
+            padding: 6px;
+            font-size: 1.1em;
+            font-weight: 450;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Via CEP</h1>
+    <form method="POST" class="endereco">
+        <label>Cep:</label>
+        <input  type="text" id="cep" name="cep"><br/>
+        <label>Rua:</label>
+        <input type="text" id="logradouro" name="logradouro"><br/>
+        <label>Bairro:</label>
+        <input type="text" id="bairro" name="bairro"><br/>
+        <label>Cidade/Localidade:</label>
+        <input type="text" id="localidade" name="localidade"><br/>
+        <label>UF:</label>
+        <input type="text" id="uf" name="uf"><br/>
+        <label>DDD:</label>
+        <input type="text" id="ddd" name="ddd"><br/>
+    </form>
+       
+    <script>
+        
+        let $cep = document.querySelector('#cep');
+        
+        const showCep = result =>
+        {
+            for(const camp in result)
+            {
+                if(document.querySelector('#'+camp))
+                {
+                    document.querySelector('#'+camp).value = result[camp];
+                }
+            }
+        }
+
+        $cep.addEventListener('blur', event =>
+        {
+            event.preventDefault();
+
+            const getCep = async () => 
+            {
+                let cepRecebido = $cep.value;
+                const response = await fetch(`https://viacep.com.br/ws/${cepRecebido}/json/`);
+                return await response.json();
+            }
+
+            const cepIdentify = async result =>
+            {
+                result = await getCep();
+                showCep(result);
+            }
+            cepIdentify();
+        });
+       
+    </script>
+</body>
+</html>

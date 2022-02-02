@@ -1,0 +1,58 @@
+body {
+    background-image: linear-gradient(180deg,
+            #6495ED 5%,
+            #00FFFF 20%,
+            #008B8B 60%,
+            #00CED1 95%);
+    margin: 0;
+    min-height: 100vh;
+    width: 100%;
+}
+#botao
+{
+    min-width: 15%;
+    padding: 7px;
+    margin-top: 20px;
+    margin-left: 180px;
+    background-color: #008B8B;
+    font-weight: 400;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+main>section img {
+    height: 200px;
+    margin: 15px;
+    width: 200px;
+}
+
+section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#personagemUm, #personagemDois, #personagemTres
+{
+    flex-direction: column;
+    border: 1px solid #008B8B;
+    margin: 4px;
+    padding: 2px;
+}
+
+#detalhes-container {
+    font-weight: bold;
+    list-style-type: none;
+    width: 100%;
+}
+
+#detalhes-container>li {
+    align-items: baseline;
+    display: flex;
+}
+#detalhes-container>li p{
+   color: white
+}

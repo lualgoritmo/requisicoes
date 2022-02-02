@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Objetos</title>
+</head>
+<body>
+    <h1>Criando Objetos</h1>
+    <script>
+        let user = 
+        {
+            nome: "Luciano",
+            age: 38,
+            email: "lu@lu.com",
+            caracteristicas: ["moreno", "alto", "bonito"],
+            login:function()
+            {
+                console.log('Usuário logado');
+            },
+            fazer ()
+            {
+                console.log('Luana Delícia');
+            },
+            logBlog: function()
+            {
+                this.caracteristicas.forEach(post => 
+                {
+                    console.log(post);
+                })
+            }
+        }
+
+        /*user.logBlog();
+        user.login();
+        user.fazer();
+        for(let i in user)
+        {
+           console.log(user[i]);
+        }*/
+
+        let numberAleatory = Math.random();
+        let result = Math.round(numberAleatory * 641);
+
+            console.log(result);
+    </script>
+</body>
+</html>

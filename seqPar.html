@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumir API paralela ou sequencial</title>
+</head>
+<body>
+    <h1>Paralela ou sequencial</h1>
+    <script>
+        const getPersons = async () =>
+        {
+            const primeiro = fetch('https://rickandmortyapi.com/api/character/1')
+            const segundo = fetch('https://rickandmortyapi.com/api/character/5')
+            const terceiro = fetch('https://rickandmortyapi.com/api/character/10')
+            
+            const results = await Promise.all([primeiro, segundo, terceiro]);
+            results.forEach(async response => console.log(await response.json()));
+        }
+        getPersons();
+    </script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+

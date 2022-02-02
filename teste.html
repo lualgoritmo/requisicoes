@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+<body>
+    <script>
+        const request = new XMLHttpRequest();
+
+        getPersona = callback => 
+        {
+            request.addEventListener('readystatechange', () => 
+            {
+                const isRequestOk = request.readyState === 4 && request.status === 200;
+                const isRequestNot = request.readyState === 4;
+                
+                if(isRequestOk)
+                {
+                    const data = JSON.parse(request.responseText);
+                    callback(null, data);
+                    console.log(`${data.name}`);
+                    console.log(`${data.status}`);
+                    console.log(`${data.species}`);
+                    return;
+                }
+
+                if(isRequestNot)
+                {
+                    callback('Não funcionou', null);
+                }
+            });
+            request.open('GET','https://rickandmortyapi.com/api/character/');
+            request.send();
+        }
+
+        getPersona((error, data) => 
+        {
+            if(error)
+            {
+                console.log(error);
+                return;
+            }
+            console.log(data);
+        });
+    </script>
+</body>
+</html>
+
+
+
+

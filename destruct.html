@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destruct JS</title>
+</head>
+<body>
+    <h1>Destruct JS</h1>
+    <script>
+        const swap = ([first, , tree]) => [tree, , first];
+        console.log(swap([1, 2, 3]));
+
+        const topics = 
+        [
+            {"id": 1, "name":"Luciano"},
+            {"id": 2, "name":"Maria"},
+            {"id": 3, "name":"Cesar"},
+            {"id": 4, "name":"Ana"}
+        ]
+        /*const ar = ([, , ,{name}]) => topics
+        {
+            console.log({name});
+        }
+        console.log(ar(name));*/
+
+        const color = ['#000', ['#00FF00', '#FFF', '#0000ff'], '#FFF00D'];
+        const [, [red, blue, rose]] = color;
+        console.log('Cores', red, blue, rose);
+    </script>
+</body>
+</html>

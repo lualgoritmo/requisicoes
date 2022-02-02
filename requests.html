@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requests HTTP</title>
+</head>
+<body>
+    <h1>Requests</h1>
+    <script>
+        const request = new XMLHttpRequest();
+
+        const getTodos = callback =>
+        {
+            request.addEventListener('readystatechange', () => 
+            {
+                const isRequestOk = request.readyState === 4 && request.status === 200;
+                const isRequestNot = request.readyState === 4;
+
+                if(isRequestOk)
+                {
+                    const data = JSON.parse(request.responseText);
+                    callback(null, data);
+                    return;
+                }
+
+                if(isRequestNot)
+                {
+                    callback('Não Foi', null);
+                }
+
+            });
+            request.open('GET','https://jsonplaceholder.typicode.com/todos');
+            //request.open('GET', 'json/todos.json');
+            request.send();
+        }
+
+        getTodos((error, data) => 
+        {
+           if(error)
+           {
+               console.log(error);
+               return;
+           }
+           console.log(data);
+        });
+    </script>
+</body>
+</html>
+
+
+

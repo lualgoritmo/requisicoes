@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placeholder Fake</title>
+</head>
+<body>
+    <h1>Placeholder</h1>
+        <ul class="ulLista">
+
+        </ul>
+
+        <script>
+            var $ul = document.querySelector('.ulLista');
+               
+            const request = new XMLHttpRequest();
+
+            const buscaTodos = url => new Promise((resolve, reject) => 
+            {
+                request.addEventListener('readystatechange', () => 
+                {
+                        let isRequestOk = request.readyState === 4 && request.status === 200;
+                        let isRequestNot = request.readyState === 4;
+                       
+                        if(isRequestOk)
+                        {
+                            const data = JSON.parse(request.responseText);
+                                resolve(data);
+                        }
+                        
+                        if(isRequestNot)
+                        {
+                            reject('Não funcionou');
+                        }
+                  });
+                        request.open('GET', url);
+                        request.send();
+                });     
+                buscaTodos('https://jsonplaceholder.typicode.com/todos')
+                    .then(resp => console.log(resp))
+                    .then(error => console.log(error));
+        </script>
+</body>
+</html>
+
+
+
