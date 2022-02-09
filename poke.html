@@ -17,18 +17,20 @@
             return response;
         }
 
+        const $poker = document.querySelector('.name');
+
         const personPokemon = async() =>
         {
             const pokemonResult = await  getPokemon();
             pokemonResult.json()
             .then(person => {
-                for(data in person.results)
+                for(let data in person)
                 {
-                    console.log(person.results[data]);
-                    const $poker = document.querySelector('.name');
-                    li = document.createElement('li');
-                    li.innerHTML = `${person.results[data]}`;
-                    $poker.append(li);
+                  person.results.map(response =>{
+                      let li = document.createElement('li');
+                          li.innerHTML = `${response.name},  ${response.url}`;
+                          $poker.append(li);
+                  });
                 }
             })
             .catch(error => console.log(error));
