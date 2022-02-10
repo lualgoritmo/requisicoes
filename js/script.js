@@ -1,10 +1,11 @@
+
+const $poker = document.querySelector('.name');
+
 const getPokemon = async() =>
 {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=100&offset=200`);
     return response;
 }
-
-const $poker = document.querySelector('.name');
 
 const personPokemon = async() =>
 {
@@ -17,6 +18,6 @@ const personPokemon = async() =>
                   $poker.append(li);
           });
     })
-    .catch(error => console.log(error));
+    .catch(error => alert(error));
 }
 personPokemon();
