@@ -11,14 +11,11 @@ const personPokemon = async() =>
     const pokemonResult = await  getPokemon();
     pokemonResult.json()
     .then(person => {
-        for(let data in person)
-        {
           person.results.map(response => {
               let li = document.createElement('li');
                   li.innerHTML = `${response.name},  ${response.url}`;
                   $poker.append(li);
           });
-        }
     })
     .catch(error => console.log(error));
 }
