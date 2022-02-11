@@ -11,8 +11,11 @@ const personPokemon = async() =>
 {
     const pokemonResult = await  getPokemon();
     pokemonResult.json()
-    .then(person => {
-          person.results.map(response => {
+    .then(person => 
+    {
+        //console.log('Person',person.results);
+          person.results.map(response => 
+          {
               let li = document.createElement('li');
                   li.innerHTML = `${response.name},  ${response.url}`;
                   $poker.append(li);
