@@ -7,10 +7,10 @@
             const nome = document.getElementById('nome'+id);
             const especie = document.getElementById('especie'+id);
             const condicao = document.getElementById('condicao'+id);
-            img.src = imageP;
-            nome.innerHTML = nomeP;
-            especie.innerHTML = especieP;
-            condicao.innerHTML = condicaoP;
+            img.src = `${imageP}`;
+            nome.innerHTML = `${nomeP}`;
+            especie.innerHTML = `${especieP}`;
+            condicao.innerHTML = `${condicaoP}`;;
         }
 
         const createRandonValue = (max, min) =>
@@ -24,15 +24,11 @@
             const person = await fetch(`https://rickandmortyapi.com/api/character/${aleatorio}`);
             return await person.json();
         }
+        
         const charactersIdentified = async id =>
         {
             const person = await getPersona(); 
-            var pImg = person.image; 
-            var pNome = person.name;
-            var estatusP = person.status;
-            var especie =  person.species;
-
-            getUsers(pImg, pNome, estatusP, especie, id);
+            getUsers(person.image, person.name, person.status, person.species, id);
         }
         
         function initial(totalDePersonagens)
