@@ -22,23 +22,19 @@
         {
             const aleatorio = createRandonValue(671,1);
             const person = await fetch(`https://rickandmortyapi.com/api/character/${aleatorio}`);
-            return person;
+            return await person.json();
         }
+        const charactersIdentified = async id =>
+        {
+            const person = await getPersona(); 
+            var pImg = person.image; 
+            var pNome = person.name;
+            var estatusP = person.status;
+            var especie =  person.species;
 
-        const charactersIdentified = async (id) => 
-        {  
-           const person = await getPersona(id);
-            person.json().then(response => 
-            {
-                var pImg = response.image; 
-                var pNome = response.name;
-                var estatusP = response.status;
-                var especie =  response.species;   
-
-                getUsers(pImg, pNome, estatusP, especie, id);
-            });
+            getUsers(pImg, pNome, estatusP, especie, id);
         }
-
+        
         function initial(totalDePersonagens)
         {
             var totalPersonagens = totalDePersonagens;
