@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método FILTER</title>
+</head>
+<body>
+    <h1>Filter JS</h1>
+    <div class="container"></div>
+    <script>
+        const randowNumbers = [1,2,3,4,5,6,7,8,9,10,15,100,99,90,45,85,70];
+        const users = [
+            {name:"Luciano", premium: false},
+            {name:"Luciana", premium: true},
+            {name:"Bruna", premium: true},
+            {name:"Fernanda", premium: true},
+            {name:"Mario", premium: false}
+        ];
+        const random = randowNumbers.filter(item => item >= 50);
+       // console.log('Novo', random, randowNumbers);
+
+       const person = users.filter(user => user.premium);
+       console.log(person);
+
+    </script>
+</body>
+</html>
