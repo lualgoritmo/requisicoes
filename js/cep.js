@@ -26,7 +26,6 @@
             const cepIdentify = async result =>
             {  
                 result = await getCep();
-                console.log(result);
                 showCep(result);
             }
             cepIdentify();
