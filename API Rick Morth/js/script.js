@@ -7,10 +7,10 @@
             const nome = document.getElementById('nome'+id);
             const especie = document.getElementById('especie'+id);
             const condicao = document.getElementById('condicao'+id);
-            img.src = `${imageP}`;
-            nome.innerHTML = `${nomeP}`;
-            especie.innerHTML = `${especieP}`;
-            condicao.innerHTML = `${condicaoP}`;;
+            img.src = ` ${imageP}`;
+            nome.innerHTML = ` ${nomeP}`;
+            especie.innerHTML = ` ${especieP}`;
+            condicao.innerHTML = ` ${condicaoP}`;;
         }
 
         const createRandonValue = (max, min) =>
