@@ -8,8 +8,43 @@
 </head>
 <body>
     <h1>Método MAP</h1>
+    <div class="container"></div>
     <script>
-        
+        const numbers = [1,2,3,4,5,6,7,8,9,10];
+        $div = document.querySelector('.container');
+        const prices = [10,2,15,12,13,40,65,11,3,63];
+        const products = [
+            {price: 30},
+            {price: 20},
+            {price: 45},
+            {price: 50},
+            {price: 80}
+        ];
+
+        const saleProducts = products.map(product =>
+        {
+            if(product.price >= 30)
+            {
+                return {price: product.price / 2};
+            }
+            return product;
+        });
+        console.log(saleProducts);
+        console.log(products);
+        /*numbers.forEach((item, index) => console.log(item * 2, index));
+        const treeNumbers = numbers.map(item =>
+        {
+           return item * 3;
+        });
+        const salePrices = prices.map(price => price /2);
+        console.log(salePrices);
+        number.map(numbe =>
+        {
+            let $p = document.createElement('p');
+            $p.innerHTML = `${numbe}`;
+            $div.append($p);
+        });*/
+
     </script>
 </body>
 </html>
