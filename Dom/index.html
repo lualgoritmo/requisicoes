@@ -7,9 +7,12 @@
     <title>Dom HTML</title>
 </head>
 <body>
-    <h1>Dom Document</h1>
+    <h1 style="color:blue">Style DOM</h1>
     <script>
-       document;
+       var h1 = document.querySelector('h1');
+       h1.style.margin = '50px';
+       h1.style.backgroundColor = 'red';
+       console.log(h1.style);
     </script>
 </body>
 </html>

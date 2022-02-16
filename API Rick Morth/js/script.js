@@ -27,8 +27,9 @@
         
         const charactersIdentified = async id =>
         {
-            const person = await getPersona(); 
-            getUsers(person.image, person.name, person.status, person.species, id);
+            /*COM DESTRUCT */
+            const { image,name,status,species } = await getPersona(); 
+            getUsers(image, name, status, species, id);
         }
         
         function initial(totalDePersonagens)
