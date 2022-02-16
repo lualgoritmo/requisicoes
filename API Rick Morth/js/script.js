@@ -10,7 +10,7 @@
             img.src = ` ${imageP}`;
             nome.innerHTML = ` ${nomeP}`;
             especie.innerHTML = ` ${especieP}`;
-            condicao.innerHTML = ` ${condicaoP}`;;
+            condicao.innerHTML = ` ${condicaoP}`;
         }
 
         const createRandonValue = (max, min) =>
@@ -28,14 +28,14 @@
         const charactersIdentified = async id =>
         {
             /*COM DESTRUCT */
-            const { image,name,status,species } = await getPersona(); 
+            const { image, name, status, species } = await getPersona(); 
             getUsers(image, name, status, species, id);
         }
         
-        function initial(totalDePersonagens)
+        function initial(totalCharacters)
         {
-            var totalPersonagens = totalDePersonagens;
-            for(var i = 0; i < (totalPersonagens); i++)
+            var totalPerson = totalCharacters;
+            for(var i = 0; i < (totalPerson); i++)
             {
                 charactersIdentified(i);
             }
