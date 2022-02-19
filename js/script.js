@@ -10,13 +10,13 @@ const getPokemon = async() =>
 const personPokemon = async result=>
 {
     result = await getPokemon();
+    console.log(result);
     result.results.map(response =>
     {
-        const{name, url} = response;
+        const { name, url } = response;
         let li = document.createElement('li');
-        li.innerHTML = `${name},  ${url}`;
+        li.innerHTML = `Nome: ${name},  Url: ${url}`;
         $poker.append(li);
-        //console.log(name, url);
     });
 }
 /*const personPokemon = async() =>
