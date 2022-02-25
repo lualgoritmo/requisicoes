@@ -7,10 +7,10 @@ const getPokemon = async() =>
     //console.log('TOTAL',response.json());
     return await response.json();
 }
-const personPokemon = async result=>
+const personPokemon = async result =>
 {
     result = await getPokemon();
-    console.log(result);
+    //console.log(result);
     result.results.map(response =>
     {
         const { name, url } = response;
