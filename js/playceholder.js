@@ -12,10 +12,9 @@
          result.map(response =>
          {
              let p = document.createElement('p');
-             const { albumId, id, title, thumbnailUrl, url} = response;
+             const { albumId, id, title, thumbnailUrl, url } = response;
              p.innerHTML = `${albumId}, ${id}, ${title}, ${thumbnailUrl}, ${url}`;
              $h1.append(p);
          });
     }
-
     resultPhoto();
